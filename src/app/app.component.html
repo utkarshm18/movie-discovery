@@ -1,0 +1,44 @@
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo-section">
+      <a routerLink="/home" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#e50914">
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+        </svg>
+        <span class="logo-text">MovieHub</span>
+      </a>
+    </div>
+
+    <nav class="main-nav">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}" class="nav-link">Home</a>
+      <a routerLink="/favorites" routerLinkActive="active" class="nav-link">
+        Favorites
+        <span *ngIf="favoritesCount() > 0" class="badge">{{ favoritesCount() }}</span>
+      </a>
+      <div class="genre-dropdown">
+        <button class="nav-link dropdown-toggle">Genres</button>
+        <div class="dropdown-menu">
+          <a *ngFor="let genre of genres" 
+             [routerLink]="['/genre', genre.toLowerCase()]" 
+             class="dropdown-item">
+            {{ genre }}
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="search-section">
+      <app-search-bar (search)="onSearch($event)"></app-search-bar>
+    </div>
+  </div>
+</header>
+
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <p>&copy; 2024 MovieHub. Powered by OMDb API.</p>
+  </div>
+</footer>
