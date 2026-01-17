@@ -105,3 +105,4 @@ export class MovieListComponent {
   @Input() loading: boolean = false;
 }
 
+

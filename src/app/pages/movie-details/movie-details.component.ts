@@ -43,7 +43,7 @@ import { LazyLoadDirective } from '../../directives/lazy-load.directive';
           <div class="poster-wrapper">
             <img 
               [src]="fallbackPoster"
-              [data-src]="movie()!.Poster !== 'N/A' ? movie()!.Poster : fallbackPoster"
+              [attr.data-src]="movie()!.Poster !== 'N/A' ? movie()!.Poster : fallbackPoster"
               [alt]="movie()!.Title"
               appLazyLoad
               class="poster-image"
@@ -440,4 +440,5 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
 }
+
 

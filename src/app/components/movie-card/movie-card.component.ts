@@ -14,7 +14,7 @@ import { LazyLoadDirective } from '../../directives/lazy-load.directive';
       <div class="poster-container">
         <img 
           [src]="fallbackPoster" 
-          [data-src]="movie.Poster !== 'N/A' ? movie.Poster : fallbackPoster"
+          [attr.data-src]="movie.Poster !== 'N/A' ? movie.Poster : fallbackPoster"
           [alt]="movie.Title"
           appLazyLoad
           class="poster"
@@ -163,4 +163,5 @@ export class MovieCardComponent {
     this.favoritesService.toggleFavorite(this.movie);
   }
 }
+
 

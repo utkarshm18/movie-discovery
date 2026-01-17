@@ -59,7 +59,7 @@ export class MovieService {
     const request = this.http.get<MovieDetails>(this.apiUrl, { params }).pipe(
       map(response => {
         if (response.Response === 'False') {
-          throw new Error(response.Error || 'Movie not found!');
+          throw new Error((response as any).Error || 'Movie not found!');
         }
         return response;
       }),
@@ -93,7 +93,7 @@ export class MovieService {
     const request = this.http.get<MovieDetails>(this.apiUrl, { params }).pipe(
       map(response => {
         if (response.Response === 'False') {
-          throw new Error(response.Error || 'Movie not found!');
+          throw new Error((response as any).Error || 'Movie not found!');
         }
         return response;
       }),
@@ -112,4 +112,5 @@ export class MovieService {
     return this.searchMovies(genre, page, 'movie');
   }
 }
+
 
